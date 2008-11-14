@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import com.bendalton.mytabs.model.YouTubeModel;
+			import com.bendalton.mytabs.controller.YouTubeController;
+			
+			public var controller:YouTubeController = new YouTubeController();
+			public var model:YouTubeModel =  YouTubeModel.getInstance();
+			
+			private function init():void
+			{
+				controller.view = YouTubePanel(this);
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:VideoDisplay width="320" height="240" id="player" autoPlay="true"/>
+</mx:Canvas>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml">
+<mx:Metadata>
+	[Event('tabAdded')]
+</mx:Metadata>
+<mx:Script>
+	<![CDATA[
+		import flash.utils.setTimeout;
+		import mx.controls.Text;
+		import com.everythingflex.air.components.AlertWindow;
+		//http://www.ultimate-guitar.com/home/favorites/?tabs&act=addtab
+		private function onLocationChange(event:Event):void
+		{
+			trace('location change')
+			if(html.location.indexOf("http://www.ultimate-guitar.com/home/favorites/?tabs&act=addtab") != -1)
+			{
+				dispatchEvent(new Event('tabAdded'));
+				html.addEventListener(Event.COMPLETE,onTabAdded);
+				trace('tab added');
+			}
+		}
+		
+		private function onTabAdded(event:Event):void
+		{
+			html.removeEventListener(Event.COMPLETE,onTabAdded);
+			setTimeout(function():void{	html.location = "http://www.ultimate-guitar.com/advanced_search.html";},1000);
+		}
+		
+	]]>
+</mx:Script>
+	<mx:HTML id="html" location="http://www.ultimate-guitar.com/advanced_search.html" width="100%" height="100%" locationChange="onLocationChange(event)"/>
+</mx:Canvas>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml">
+<mx:Script>
+	<![CDATA[
+		
+	]]>
+</mx:Script>
+	<mx:List id="tabList" dataProvider="{model.tabCollection}" itemRenderer="com.bendalton.mytabs.view.TabRenderer" itemClick="tabModel.tabCollection.getItemAt(Tab(event.rowIndex))"  width="200" height="100%"/>
+</mx:Canvas>
