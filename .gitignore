@@ -3,3 +3,7 @@ bin-debug
 mockups
 *.air
 *.airi
+.gitignore
+.project
+.actionScriptProperties
+.flexProperties
